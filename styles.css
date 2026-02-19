@@ -22,6 +22,24 @@ header {
   border-bottom: 4px solid #E30613;
 }
 
+.site-nav {
+  margin-bottom: 1rem;
+}
+
+.site-nav a {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #fff;
+  text-decoration: none;
+  margin-right: 1.5rem;
+}
+
+.site-nav a:hover {
+  color: #E30613;
+}
+
 header h1 {
   font-size: 1.25rem;
   font-weight: 700;
@@ -48,6 +66,24 @@ main {
   margin: 0 auto;
   padding: 2.5rem;
   min-height: calc(100vh - 120px);
+}
+
+main.page-main {
+  display: block;
+  max-width: 720px;
+}
+
+.content-section h2 {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin: 0 0 0.75rem 0;
+  color: #666;
+}
+
+.content-section p {
+  margin: 0 0 0.5rem 0;
 }
 
 /* Left column: graph (primary) then note viewer (secondary) */
