@@ -149,6 +149,69 @@ main.page-main {
   height: auto;
 }
 
+.graph-fullscreen-note {
+  display: none;
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 10;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+#graph-section.is-fullscreen .graph-fullscreen-note {
+  display: flex;
+  opacity: 0;
+  pointer-events: none;
+}
+
+#graph-section.is-fullscreen .graph-fullscreen-note.is-visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.graph-fullscreen-note-panel {
+  position: relative;
+  background: #fff;
+  color: #111;
+  max-width: 640px;
+  max-height: 85vh;
+  overflow-y: auto;
+  padding: 1.5rem 2rem 2rem;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.25);
+}
+
+.graph-fullscreen-note-content {
+  padding-top: 0.5rem;
+}
+
+.graph-fullscreen-note-content h1 { font-size: 1.1rem; font-weight: 700; margin: 0 0 0.75rem 0; }
+.graph-fullscreen-note-content h2 { font-size: 0.9rem; font-weight: 600; margin: 1rem 0 0.5rem 0; color: #333; }
+.graph-fullscreen-note-content h3 { font-size: 0.85rem; font-weight: 600; margin: 0.75rem 0 0.35rem 0; color: #444; }
+.graph-fullscreen-note-content p { margin: 0 0 0.5rem 0; }
+.graph-fullscreen-note-content ul { margin: 0.25rem 0 0.75rem 0; padding-left: 1.25rem; }
+.graph-fullscreen-note-content a { color: #E30613; text-decoration: none; }
+.graph-fullscreen-note-content a:hover { text-decoration: underline; }
+
+.graph-fullscreen-note-close {
+  position: absolute;
+  top: 0.75rem;
+  right: 1rem;
+  font-size: 1.5rem;
+  line-height: 1;
+  color: #666;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.25rem;
+  font-family: inherit;
+}
+
+.graph-fullscreen-note-close:hover {
+  color: #E30613;
+}
+
 #note-viewer {
   grid-column: 1;
   grid-row: 2;

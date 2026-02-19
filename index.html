@@ -27,6 +27,12 @@
         <button type="button" id="graph-fullscreen-btn" aria-label="Toggle fullscreen">Fullscreen</button>
       </div>
       <div id="graph-container"></div>
+      <div id="graph-fullscreen-note" class="graph-fullscreen-note" aria-hidden="true">
+        <div class="graph-fullscreen-note-panel">
+          <button type="button" class="graph-fullscreen-note-close" aria-label="Close">×</button>
+          <div class="graph-fullscreen-note-content"></div>
+        </div>
+      </div>
     </section>
 
     <section id="notes-section">
@@ -165,10 +171,38 @@
         }
       };
       graphNetwork = new vis.Network(container, data, options);
+      const fsNoteEl = document.getElementById('graph-fullscreen-note');
+      const fsNoteContent = fsNoteEl.querySelector('.graph-fullscreen-note-content');
+      const fsNoteClose = fsNoteEl.querySelector('.graph-fullscreen-note-close');
+
+      function hideFullscreenNote() {
+        fsNoteEl.classList.remove('is-visible');
+        fsNoteEl.setAttribute('aria-hidden', 'true');
+      }
+
+      async function showFullscreenNote(file) {
+        const response = await fetch('notes/' + encodeURIComponent(file));
+        if (!response.ok) {
+          fsNoteContent.innerHTML = '<p>Note not found.</p>';
+        } else {
+          const markdown = await response.text();
+          fsNoteContent.innerHTML = typeof marked !== 'undefined' ? marked.parse(markdown) : markdown;
+        }
+        fsNoteEl.classList.add('is-visible');
+        fsNoteEl.setAttribute('aria-hidden', 'false');
+      }
+
+      fsNoteClose.addEventListener('click', hideFullscreenNote);
+
       graphNetwork.on('doubleClick', function(params) {
         if (params.nodes.length > 0) {
           const file = idToFile.get(params.nodes[0]);
-          if (file) loadNote(file);
+          if (!file) return;
+          if (document.fullscreenElement) {
+            showFullscreenNote(file);
+          } else {
+            loadNote(file);
+          }
         }
       });
 
@@ -178,6 +212,7 @@
         const isFs = !!document.fullscreenElement;
         section.classList.toggle('is-fullscreen', isFs);
         fsBtn.textContent = isFs ? 'Exit fullscreen' : 'Fullscreen';
+        if (!isFs) hideFullscreenNote();
         if (graphNetwork) {
           setTimeout(function() { graphNetwork.fit(); }, 100);
         }
