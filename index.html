@@ -101,12 +101,17 @@
       const edges = new vis.DataSet();
       const noteMap = new Map();
       const contentMap = new Map();
-      let id = 1;
 
-      for (const file of noteFiles) {
-        const response = await fetch('notes/' + encodeURIComponent(file));
-        if (response.ok) {
-          const content = await response.text();
+      const results = await Promise.all(
+        noteFiles.map(file =>
+          fetch('notes/' + encodeURIComponent(file))
+            .then(r => r.ok ? r.text() : null)
+            .then(content => ({ file, content }))
+        )
+      );
+      let id = 1;
+      for (const { file, content } of results) {
+        if (content != null) {
           nodes.add({ id: id, label: file.replace('.md', '') });
           noteMap.set(file, id);
           contentMap.set(file, content);
