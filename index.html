@@ -24,6 +24,7 @@
 
     <section id="notes-section">
       <h2>Notes List</h2>
+      <input type="text" id="notes-search" placeholder="Search notes..." aria-label="Search notes">
       <ul id="notes-list"></ul>
     </section>
 
@@ -152,8 +153,12 @@
 
     function listNotes() {
       const ul = document.getElementById('notes-list');
+      const query = (document.getElementById('notes-search').value || '').trim().toLowerCase();
+      const filtered = query
+        ? noteFiles.filter(f => f.replace('.md', '').toLowerCase().includes(query))
+        : noteFiles;
       ul.innerHTML = '';
-      noteFiles.forEach(file => {
+      filtered.forEach(file => {
         const li = document.createElement('li');
         const a = document.createElement('a');
         a.href = '#';
@@ -163,6 +168,8 @@
         ul.appendChild(li);
       });
     }
+
+    document.getElementById('notes-search').addEventListener('input', listNotes);
 
     async function loadNote(file) {
       const response = await fetch('notes/' + encodeURIComponent(file));

@@ -110,6 +110,27 @@ main {
   color: #666;
 }
 
+#notes-search {
+  width: 100%;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 0.8rem;
+  letter-spacing: 0.03em;
+  padding: 0.5rem 0.6rem;
+  margin: 0 0 0.75rem 0;
+  border: 1px solid #e0e0e0;
+  background: #fff;
+  color: #111;
+}
+
+#notes-search::placeholder {
+  color: #999;
+}
+
+#notes-search:focus {
+  outline: none;
+  border-color: #E30613;
+}
+
 section {
   flex: none;
 }
@@ -124,6 +145,8 @@ section {
   list-style-type: none;
   padding: 0;
   margin: 0;
+  max-height: calc(100vh - 220px);
+  overflow-y: auto;
 }
 
 #notes-list li {
@@ -186,5 +209,6 @@ footer {
   #notes-section { grid-column: 1; grid-row: 2; border-bottom: 1px solid #e0e0e0; padding-bottom: 1rem; }
   #note-viewer { grid-column: 1; grid-row: 3; border-top: 1px solid #e0e0e0; padding-top: 1rem; }
   #graph-container { height: 360px; }
+  #notes-list { max-height: 240px; }
   #note-content { max-height: 320px; min-height: 120px; }
 }
