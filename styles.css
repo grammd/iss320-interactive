@@ -97,13 +97,56 @@ main.page-main {
   box-shadow: none;
 }
 
+.graph-section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
 #graph-section h2 {
   font-size: 0.7rem;
   font-weight: 600;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  margin: 0 0 1rem 0;
+  margin: 0;
   color: #666;
+}
+
+#graph-fullscreen-btn {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #111;
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  padding: 0.35rem 0.6rem;
+  cursor: pointer;
+}
+
+#graph-fullscreen-btn:hover {
+  border-color: #E30613;
+  color: #E30613;
+}
+
+#graph-section.is-fullscreen {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 1rem;
+}
+
+#graph-section.is-fullscreen .graph-section-header {
+  flex-shrink: 0;
+}
+
+#graph-section.is-fullscreen #graph-container {
+  flex: 1;
+  min-height: 0;
+  height: auto;
 }
 
 #note-viewer {

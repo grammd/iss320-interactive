@@ -22,7 +22,10 @@
 
   <main>
     <section id="graph-section">
-      <h2>Graph View</h2>
+      <div class="graph-section-header">
+        <h2>Graph View</h2>
+        <button type="button" id="graph-fullscreen-btn" aria-label="Toggle fullscreen">Fullscreen</button>
+      </div>
       <div id="graph-container"></div>
     </section>
 
@@ -43,6 +46,8 @@
   </footer>
 
   <script>
+    let graphNetwork = null;
+
     const noteFiles = [
       'Author - Le Corbusier.md',
       'Author - Lewis Mumford.md',
@@ -159,11 +164,30 @@
           color: { color: '#E30613', highlight: '#ff3d4d', hover: '#ff3d4d' }
         }
       };
-      const network = new vis.Network(container, data, options);
-      network.on('doubleClick', function(params) {
+      graphNetwork = new vis.Network(container, data, options);
+      graphNetwork.on('doubleClick', function(params) {
         if (params.nodes.length > 0) {
           const file = idToFile.get(params.nodes[0]);
           if (file) loadNote(file);
+        }
+      });
+
+      const section = document.getElementById('graph-section');
+      const fsBtn = document.getElementById('graph-fullscreen-btn');
+      function onFullscreenChange() {
+        const isFs = !!document.fullscreenElement;
+        section.classList.toggle('is-fullscreen', isFs);
+        fsBtn.textContent = isFs ? 'Exit fullscreen' : 'Fullscreen';
+        if (graphNetwork) {
+          setTimeout(function() { graphNetwork.fit(); }, 100);
+        }
+      }
+      document.addEventListener('fullscreenchange', onFullscreenChange);
+      fsBtn.addEventListener('click', function() {
+        if (!document.fullscreenElement) {
+          section.requestFullscreen();
+        } else {
+          document.exitFullscreen();
         }
       });
     }
