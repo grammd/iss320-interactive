@@ -1,0 +1,189 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2685.4">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
+  </style>
+</head>
+<body>
+<p class="p1">&lt;!DOCTYPE html&gt;</p>
+<p class="p1">&lt;html lang="en"&gt;</p>
+<p class="p1">&lt;head&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta charset="UTF-8"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;title&gt;Urban Sociology Obsidian Vault&lt;/title&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;link rel="stylesheet" href="styles.css"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- Marked.js for Markdown rendering --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"&gt;&lt;/script&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- Vis.js for graph visualization --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;script type="text/javascript" src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"&gt;&lt;/script&gt;</p>
+<p class="p1">&lt;/head&gt;</p>
+<p class="p1">&lt;body&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;header&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;h1&gt;Urban Sociology Notes and Graph View&lt;/h1&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p&gt;This site displays an Obsidian-style vault of notes on urban sociology authors, concepts, and readings. The graph view visualizes connections between notes based on internal links.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/header&gt;</p>
+<p class="p2"><span class="Apple-converted-space">    </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;main&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;section id="graph-section"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;h2&gt;Graph View&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div id="graph-container"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/section&gt;</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;section id="notes-section"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;h2&gt;Notes List&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;ul id="notes-list"&gt;&lt;/ul&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/section&gt;</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;section id="note-viewer"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;h2&gt;Note Viewer&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div id="note-content"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/section&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/main&gt;</p>
+<p class="p2"><span class="Apple-converted-space">    </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;footer&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p&gt;Hosted on GitHub/Netlify. Generated for academic study purposes.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/footer&gt;</p>
+<p class="p2"><span class="Apple-converted-space">    </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;script&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>// Assume notes are in a 'notes' folder in the repo. List all .md files here.</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const noteFiles = [</p>
+<p class="p1"><span class="Apple-converted-space">            </span>'Author - Le Corbusier.md',</p>
+<p class="p1"><span class="Apple-converted-space">            </span>'Author - Lewis Mumford.md',</p>
+<p class="p1"><span class="Apple-converted-space">            </span>'Author - Jane Jacobs.md',</p>
+<p class="p1"><span class="Apple-converted-space">            </span>'Author - Ferdinand Tönnies.md',</p>
+<p class="p1"><span class="Apple-converted-space">            </span>'Author - Georg Simmel.md',</p>
+<p class="p1"><span class="Apple-converted-space">            </span>'Reading - corbusier.pdf.md',</p>
+<p class="p1"><span class="Apple-converted-space">            </span>'Reading - Mumford What is a City Legates City Reader.pdf.md',</p>
+<p class="p1"><span class="Apple-converted-space">            </span>'Reading - jacobs.pdf.md',</p>
+<p class="p1"><span class="Apple-converted-space">            </span>'Reading - toennies.pdf.md',</p>
+<p class="p1"><span class="Apple-converted-space">            </span>'Reading - simmel.pdf.md',</p>
+<p class="p1"><span class="Apple-converted-space">            </span>'Reading - studyguide2.pdf.md',</p>
+<p class="p1"><span class="Apple-converted-space">            </span>'Reading - readings1-2.pdf.md',</p>
+<p class="p1"><span class="Apple-converted-space">            </span>// Add all concept files here, e.g.,</p>
+<p class="p1"><span class="Apple-converted-space">            </span>'Concept - Abstraction-Standardization.md',</p>
+<p class="p1"><span class="Apple-converted-space">            </span>'Concept - Atomization.md',</p>
+<p class="p1"><span class="Apple-converted-space">            </span>'Concept - Binary Opposition.md',</p>
+<p class="p1"><span class="Apple-converted-space">            </span>'Concept - Blasé.md',</p>
+<p class="p1"><span class="Apple-converted-space">            </span>// ... add the rest as per your vault (e.g., Calculative Rationality, etc.)</p>
+<p class="p1"><span class="Apple-converted-space">            </span>// For completeness, list ~40 concepts from study guide.</p>
+<p class="p1"><span class="Apple-converted-space">            </span>'Concept - Calculative Rationality.md',</p>
+<p class="p1"><span class="Apple-converted-space">            </span>'Concept - Cardo Maximus.md',</p>
+<p class="p1"><span class="Apple-converted-space">            </span>'Concept - Core.md',</p>
+<p class="p1"><span class="Apple-converted-space">            </span>'Concept - Cultural Essentialism.md',</p>
+<p class="p1"><span class="Apple-converted-space">            </span>'Concept - Decumanus.md',</p>
+<p class="p1"><span class="Apple-converted-space">            </span>'Concept - Division of Labor.md',</p>
+<p class="p1"><span class="Apple-converted-space">            </span>'Concept - Economic Determinism.md',</p>
+<p class="p1"><span class="Apple-converted-space">            </span>'Concept - Gemeinschaft.md',</p>
+<p class="p1"><span class="Apple-converted-space">            </span>'Concept - Gesellschaft.md',</p>
+<p class="p1"><span class="Apple-converted-space">            </span>'Concept - Haussmannization.md',</p>
+<p class="p1"><span class="Apple-converted-space">            </span>'Concept - Hegemony.md',</p>
+<p class="p1"><span class="Apple-converted-space">            </span>'Concept - Human Nature.md',</p>
+<p class="p1"><span class="Apple-converted-space">            </span>'Concept - Ideal Type.md',</p>
+<p class="p1"><span class="Apple-converted-space">            </span>'Concept - Intellect.md',</p>
+<p class="p1"><span class="Apple-converted-space">            </span>'Concept - Materialism.md',</p>
+<p class="p1"><span class="Apple-converted-space">            </span>'Concept - Means of Production.md',</p>
+<p class="p1"><span class="Apple-converted-space">            </span>'Concept - Mode of Production.md',</p>
+<p class="p1"><span class="Apple-converted-space">            </span>'Concept - Modernization Theory.md',</p>
+<p class="p1"><span class="Apple-converted-space">            </span>'Concept - Money Economy.md',</p>
+<p class="p1"><span class="Apple-converted-space">            </span>'Concept - Objective Spirit.md',</p>
+<p class="p1"><span class="Apple-converted-space">            </span>'Concept - Periphery.md',</p>
+<p class="p1"><span class="Apple-converted-space">            </span>'Concept - Prisoner’s Dilemma.md',</p>
+<p class="p1"><span class="Apple-converted-space">            </span>'Concept - Prosthetic.md',</p>
+<p class="p1"><span class="Apple-converted-space">            </span>'Concept - Relational History.md',</p>
+<p class="p1"><span class="Apple-converted-space">            </span>'Concept - Reserve.md',</p>
+<p class="p1"><span class="Apple-converted-space">            </span>'Concept - Semi Periphery.md',</p>
+<p class="p1"><span class="Apple-converted-space">            </span>'Concept - Social Engineering.md',</p>
+<p class="p1"><span class="Apple-converted-space">            </span>'Concept - State of Nature.md',</p>
+<p class="p1"><span class="Apple-converted-space">            </span>'Concept - Subjective Spirit.md',</p>
+<p class="p1"><span class="Apple-converted-space">            </span>'Concept - Telos.md',</p>
+<p class="p1"><span class="Apple-converted-space">            </span>'Concept - The Enlightenment.md',</p>
+<p class="p1"><span class="Apple-converted-space">            </span>'Concept - Utopia.md',</p>
+<p class="p1"><span class="Apple-converted-space">            </span>// Additional from readings</p>
+<p class="p1"><span class="Apple-converted-space">            </span>'Concept - Man’s Way.md',</p>
+<p class="p1"><span class="Apple-converted-space">            </span>'Concept - Pack-Donkey’s Way.md',</p>
+<p class="p1"><span class="Apple-converted-space">            </span>'Concept - Theater of Social Action.md',</p>
+<p class="p1"><span class="Apple-converted-space">            </span>'Concept - Social Drama.md',</p>
+<p class="p1"><span class="Apple-converted-space">            </span>'Concept - Eyes on the Street.md',</p>
+<p class="p1"><span class="Apple-converted-space">            </span>'Concept - Street Ballet.md'</p>
+<p class="p1"><span class="Apple-converted-space">        </span>];</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>// Function to fetch and parse all notes for graph</p>
+<p class="p1"><span class="Apple-converted-space">        </span>async function buildGraph() {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const nodes = new vis.DataSet();</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const edges = new vis.DataSet();</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const noteMap = new Map(); // filename to id</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>let id = 1;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>for (const file of noteFiles) {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>const response = await fetch(`notes/${file}`);</p>
+<p class="p1"><span class="Apple-converted-space">                </span>if (response.ok) {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>const content = await response.text();</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>nodes.add({ id: id, label: file.replace('.md', '') });</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>noteMap.set(file, id);</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                    </span>// Extract links: [[link]]</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>const links = content.match(/\[\[([^\]]+)\]\]/g) || [];</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>for (const link of links) {</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>const target = link.slice(2, -2) + '.md'; // Assume link is to note filename</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>if (noteFiles.includes(target)) {</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>const targetId = noteMap.get(target);</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>if (targetId) {</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>edges.add({ from: id, to: targetId });</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>}</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>id++;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>}</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>// Render graph</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const container = document.getElementById('graph-container');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const data = { nodes, edges };</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const options = {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>layout: { hierarchical: false },</p>
+<p class="p1"><span class="Apple-converted-space">                </span>physics: { enabled: true },</p>
+<p class="p1"><span class="Apple-converted-space">                </span>nodes: { shape: 'dot', size: 10 },</p>
+<p class="p1"><span class="Apple-converted-space">                </span>edges: { arrows: 'to' }</p>
+<p class="p1"><span class="Apple-converted-space">            </span>};</p>
+<p class="p1"><span class="Apple-converted-space">            </span>new vis.Network(container, data, options);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>// Function to list notes</p>
+<p class="p1"><span class="Apple-converted-space">        </span>function listNotes() {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const ul = document.getElementById('notes-list');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>noteFiles.forEach(file =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>const li = document.createElement('li');</p>
+<p class="p1"><span class="Apple-converted-space">                </span>const a = document.createElement('a');</p>
+<p class="p1"><span class="Apple-converted-space">                </span>a.href = '#';</p>
+<p class="p1"><span class="Apple-converted-space">                </span>a.textContent = file.replace('.md', '');</p>
+<p class="p1"><span class="Apple-converted-space">                </span>a.onclick = () =&gt; loadNote(file);</p>
+<p class="p1"><span class="Apple-converted-space">                </span>li.appendChild(a);</p>
+<p class="p1"><span class="Apple-converted-space">                </span>ul.appendChild(li);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>});</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>// Function to load and render a note</p>
+<p class="p1"><span class="Apple-converted-space">        </span>async function loadNote(file) {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const response = await fetch(`notes/${file}`);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>if (response.ok) {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>const markdown = await response.text();</p>
+<p class="p1"><span class="Apple-converted-space">                </span>const html = marked.parse(markdown);</p>
+<p class="p1"><span class="Apple-converted-space">                </span>document.getElementById('note-content').innerHTML = html;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>// Initialize</p>
+<p class="p1"><span class="Apple-converted-space">        </span>buildGraph();</p>
+<p class="p1"><span class="Apple-converted-space">        </span>listNotes();</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/script&gt;</p>
+<p class="p1">&lt;/body&gt;</p>
+<p class="p1">&lt;/html&gt;</p>
+</body>
+</html>
