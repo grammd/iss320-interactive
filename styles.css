@@ -1,0 +1,67 @@
+/* styles.css - Basic theme for academic feel */
+
+body {
+    font-family: 'Georgia', serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+header {
+    background-color: #2c3e50;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 20px;
+}
+
+section {
+    flex: 1 1 300px;
+    margin: 10px;
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+#graph-container {
+    height: 500px;
+    border: 1px solid #ccc;
+}
+
+#notes-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+#notes-list li a {
+    text-decoration: none;
+    color: #2980b9;
+}
+
+#notes-list li a:hover {
+    text-decoration: underline;
+}
+
+#note-content {
+    max-height: 500px;
+    overflow-y: auto;
+}
+
+footer {
+    background-color: #2c3e50;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
