@@ -129,6 +129,8 @@
         container.innerHTML = '<p>No notes loaded. Add .md files to the notes folder.</p>';
         return;
       }
+      const idToFile = new Map();
+      noteMap.forEach((nodeId, file) => { idToFile.set(nodeId, file); });
       const data = { nodes, edges };
       const options = {
         layout: { hierarchical: false },
@@ -148,7 +150,13 @@
           color: { color: '#E30613', highlight: '#ff3d4d', hover: '#ff3d4d' }
         }
       };
-      new vis.Network(container, data, options);
+      const network = new vis.Network(container, data, options);
+      network.on('doubleClick', function(params) {
+        if (params.nodes.length > 0) {
+          const file = idToFile.get(params.nodes[0]);
+          if (file) loadNote(file);
+        }
+      });
     }
 
     function listNotes() {
