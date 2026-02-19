@@ -1,7 +1,7 @@
 # Author - Le Corbusier
 
 ## Bio
-Le Corbusier (1887–1965) was a Swiss-French architect and urban planner known for modernist designs. Influenced by [[Concept - The Enlightenment]] and rational planning.
+Le Corbusier (1887–1965) was a Swiss-French architect and urban planner known for modernist designs. Influenced by [[Concept - The Enlightenment]] and rational planning. He was a founding member of the Congrès International d'Architecture Moderne (CIAM) and dedicated to providing better living conditions for residents of crowded cities. He prepared the master plan for Chandigarh in India; seventeen of his projects in seven countries are inscribed as UNESCO World Heritage sites.
 
 ## Key Ideas
 - Advocates for "Man's Way": Straight-line, goal-oriented urban planning vs. organic, meandering growth ([[Concept - Pack-Donkey's Way]]).

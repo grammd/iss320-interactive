@@ -132,8 +132,20 @@
       const options = {
         layout: { hierarchical: false },
         physics: { enabled: true },
-        nodes: { shape: 'dot', size: 10 },
-        edges: { arrows: 'to' }
+        nodes: {
+          shape: 'dot',
+          size: 10,
+          color: {
+            background: '#E30613',
+            border: '#111',
+            highlight: { background: '#ff3d4d', border: '#111' },
+            hover: { background: '#ff3d4d', border: '#111' }
+          }
+        },
+        edges: {
+          arrows: 'to',
+          color: { color: '#E30613', highlight: '#ff3d4d', hover: '#ff3d4d' }
+        }
       };
       new vis.Network(container, data, options);
     }

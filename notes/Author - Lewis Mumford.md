@@ -1,7 +1,7 @@
 # Author - Lewis Mumford
 
 ## Bio
-Lewis Mumford (1895–1990) was an American historian, sociologist, and critic of architecture/urbanism. Championed organic, human-centered planning influenced by Patrick Geddes and Ebenezer Howard.
+Lewis Mumford (1895–1990) was an American historian, sociologist, and critic of architecture/urbanism. Championed organic, human-centered planning influenced by Patrick Geddes and Ebenezer Howard. He was also a philosopher of technology and literary critic who made significant contributions to social philosophy and the history of technology. He worked closely with Patrick Geddes's associate Victor Branford and was a contemporary of Frank Lloyd Wright and Vannevar Bush.
 
 ## Key Ideas
 - City as a "Theater of Social Action" and facilitator of "Social Drama."
